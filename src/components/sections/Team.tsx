@@ -6,37 +6,37 @@ import { Button } from "@/components/ui/button";
 export const Team = () => {
   const team = [
     {
-      name: "Hrikesh",
+      name: "Hrishikesh Shandilya",
       role: "Chief Executive Officer",
       bio: "15+ years in HR tech, passionate about transforming workplace management",
       initials: "AR"
     },
     {
-      name: "Marcus Johnson",
+      name: "Aman Tiwari",
       role: "Chief Technology Officer",
       bio: "Former Google engineer, specialized in scalable cloud solutions",
       initials: "MJ"
     },
     {
-      name: "Sophia Patel",
+      name: "Hrishikesh Kumar",
       role: "Head of Product",
       bio: "Product leader with deep expertise in HR operations and user experience",
       initials: "SP"
     },
     {
-      name: "Daniel Kim",
+      name: "Apurv",
       role: "VP of Engineering",
       bio: "Built enterprise systems for Fortune 500 companies",
       initials: "DK"
     },
     {
-      name: "Emma Williams",
+      name: "Mayank Tiwari",
       role: "Head of Customer Success",
       bio: "Dedicated to ensuring every client achieves their HR goals",
       initials: "EW"
     },
     {
-      name: "Ryan Foster",
+      name: "Aman Kumar",
       role: "Lead Designer",
       bio: "Award-winning designer focused on intuitive, beautiful interfaces",
       initials: "RF"
