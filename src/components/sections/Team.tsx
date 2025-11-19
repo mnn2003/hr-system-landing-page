@@ -12,7 +12,13 @@ export const Team = () => {
       initials: "HR"
     },
     {
-      name: "Aman Tiwari",
+      name: "Apurv Deep",
+      role: "VP of Engineering",
+      bio: "Built enterprise systems for Fortune 500 companies",
+      initials: "AV"
+    },
+    {
+      name: "Aman Shandilya",
       role: "Chief Technology Officer",
       bio: "Former Google engineer, specialized in scalable cloud solutions",
       initials: "AT"
@@ -22,12 +28,6 @@ export const Team = () => {
       role: "Head of Product",
       bio: "Product leader with deep expertise in HR operations and user experience",
       initials: "HK"
-    },
-    {
-      name: "Apurv",
-      role: "VP of Engineering",
-      bio: "Built enterprise systems for Fortune 500 companies",
-      initials: "AV"
     },
     {
       name: "Mayank Tiwari",
