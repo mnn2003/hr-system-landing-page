@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { GeometricDecorations } from "@/components/ui/GeometricDecorations";
 
 export const CTA = () => {
   const scrollToSection = (id: string) => {
@@ -7,8 +9,10 @@ export const CTA = () => {
   };
 
   return (
-    <section className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-24">
-      <Card className="p-6 sm:p-8 lg:p-12 bg-gradient-hero text-primary-foreground text-center shadow-elegant border-0">
+    <section className="relative container mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-24 overflow-hidden">
+      <GeometricDecorations variant="pricing" />
+      <AnimatedSection animation="scale">
+        <Card className="p-6 sm:p-8 lg:p-12 bg-gradient-hero text-primary-foreground text-center shadow-elegant border-0">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Ready to Transform Your HR Operations?</h2>
         <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 opacity-90 max-w-2xl mx-auto">
           Join hundreds of companies already using our platform to streamline their HR processes
@@ -25,13 +29,14 @@ export const CTA = () => {
           <Button 
             size="lg" 
             variant="outline" 
-            className="border-2 border-white text-white hover:bg-white/10 w-full sm:w-auto"
+            className="border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground/10 w-full sm:w-auto"
             onClick={() => scrollToSection('demo')}
           >
             Schedule Demo
           </Button>
         </div>
-      </Card>
+        </Card>
+      </AnimatedSection>
     </section>
   );
 };
