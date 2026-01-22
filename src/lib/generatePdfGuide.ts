@@ -100,7 +100,7 @@ export const generatePdfGuide = () => {
   // Footer
   doc.setFontSize(10);
   doc.setTextColor(150, 150, 150);
-  doc.text("© 2024 HR Management System. All rights reserved.", pageWidth / 2, 285, { align: "center" });
+  doc.text("© 2026 HR Management System. All rights reserved.", pageWidth / 2, 285, { align: "center" });
   
   // Download
   doc.save("HR-Management-System-Guide.pdf");
