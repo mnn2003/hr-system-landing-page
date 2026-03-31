@@ -76,58 +76,61 @@ export const FeaturesShowcase = () => {
           </p>
         </AnimatedSection>
 
-        {/* Grid layout */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Grid layout - Side by Side Image & Content */}
+        <div className="flex flex-col gap-12 lg:gap-16">
           {showcaseFeatures.map((feature, index) => (
             <AnimatedSection 
               key={feature.id} 
               animation="fade-up" 
               delay={index * 100}
-              className="h-full"
+              className="w-full"
             >
               <div className={`
-                group relative h-full bg-card rounded-2xl overflow-hidden 
+                group relative bg-card rounded-2xl overflow-hidden 
                 border border-border hover:border-primary/30 
                 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5
               `}>
                 {/* Gradient background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                 
-                {/* Content */}
-                <div className="relative p-6 sm:p-8 h-full flex flex-col">
-                  {/* Image Section */}
-                  <div className="flex justify-center mb-6">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent rounded-full blur-2xl" />
-                      <img
-                        src={feature.image}
-                        alt={feature.title}
-                        className="relative w-32 h-32 sm:w-40 sm:h-40 object-contain transform group-hover:scale-110 transition-transform duration-500"
-                      />
+                {/* Content - Side by Side Layout */}
+                <div className="relative p-6 sm:p-8 lg:p-10">
+                  <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-12 items-center`}>
+                    {/* Image Section */}
+                    <div className="flex-shrink-0 w-full lg:w-2/5">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent rounded-full blur-2xl" />
+                        <img
+                          src={feature.image}
+                          alt={feature.title}
+                          className="relative w-full max-w-[280px] mx-auto lg:max-w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Title */}
-                  <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                    {feature.title}
-                  </h3>
-                  
-                  {/* Description */}
-                  <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
-                    {feature.description}
-                  </p>
+                    {/* Text Content Section */}
+                    <div className="flex-1 w-full lg:w-3/5">
+                      {/* Title */}
+                      <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+                        {feature.title}
+                      </h3>
+                      
+                      {/* Description */}
+                      <p className="text-base sm:text-lg text-muted-foreground mb-6 leading-relaxed">
+                        {feature.description}
+                      </p>
 
-                  {/* Features List */}
-                  <div className="mt-auto">
-                    <div className="grid grid-cols-2 gap-3">
-                      {feature.features.map((item, idx) => (
-                        <div key={idx} className="flex items-center gap-2">
-                          <CheckCircle className={`h-4 w-4 ${feature.iconColor} flex-shrink-0`} />
-                          <span className="text-sm text-foreground/80">
-                            {item}
-                          </span>
-                        </div>
-                      ))}
+                      {/* Features List */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {feature.features.map((item, idx) => (
+                          <div key={idx} className="flex items-center gap-2">
+                            <CheckCircle className={`h-5 w-5 ${feature.iconColor} flex-shrink-0`} />
+                            <span className="text-sm sm:text-base text-foreground/80">
+                              {item}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
