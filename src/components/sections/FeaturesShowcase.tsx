@@ -1,7 +1,6 @@
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { GeometricDecorations } from "@/components/ui/GeometricDecorations";
-import { CheckCircle, Sparkles, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { CheckCircle, Sparkles } from "lucide-react";
 
 import illustrationEmployees from "@/assets/illustration-employees.png";
 import illustrationAttendance from "@/assets/illustration-attendance.png";
@@ -77,7 +76,7 @@ export const FeaturesShowcase = () => {
           </p>
         </AnimatedSection>
 
-        {/* Masonry-style grid layout */}
+        {/* Grid layout */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {showcaseFeatures.map((feature, index) => (
             <AnimatedSection 
@@ -90,7 +89,6 @@ export const FeaturesShowcase = () => {
                 group relative h-full bg-card rounded-2xl overflow-hidden 
                 border border-border hover:border-primary/30 
                 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5
-                ${index === 2 || index === 4 ? 'lg:col-span-1' : ''}
               `}>
                 {/* Gradient background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
@@ -115,49 +113,28 @@ export const FeaturesShowcase = () => {
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-sm sm:text-base text-muted-foreground mb-4 line-clamp-3">
+                  <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
                     {feature.description}
                   </p>
 
                   {/* Features List */}
                   <div className="mt-auto">
-                    <div className="grid grid-cols-2 gap-2 mb-6">
-                      {feature.features.slice(0, 4).map((item, idx) => (
-                        <div key={idx} className="flex items-center gap-1.5">
-                          <CheckCircle className={`h-3.5 w-3.5 ${feature.iconColor} flex-shrink-0`} />
-                          <span className="text-xs sm:text-sm text-foreground/80 truncate">
+                    <div className="grid grid-cols-2 gap-3">
+                      {feature.features.map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-2">
+                          <CheckCircle className={`h-4 w-4 ${feature.iconColor} flex-shrink-0`} />
+                          <span className="text-sm text-foreground/80">
                             {item}
                           </span>
                         </div>
                       ))}
                     </div>
-                    
-                    <Button 
-                      variant="ghost" 
-                      className="w-full group/btn justify-between hover:bg-primary/10"
-                    >
-                      <span>Learn More</span>
-                      <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </Button>
                   </div>
                 </div>
               </div>
             </AnimatedSection>
           ))}
         </div>
-
-        {/* Bottom CTA */}
-        <AnimatedSection animation="fade-up" delay={500} className="text-center mt-16 sm:mt-20">
-          <div className="inline-flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
-              Explore All Features
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button size="lg" variant="outline">
-              Watch Demo
-            </Button>
-          </div>
-        </AnimatedSection>
       </div>
     </section>
   );
