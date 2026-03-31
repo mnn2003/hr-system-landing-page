@@ -51,12 +51,23 @@ export const Demo = () => {
         <div className="relative grid lg:grid-cols-2 gap-6 sm:gap-7 lg:gap-10 max-w-6xl mx-auto">
           <AnimatedSection animation="fade-right" delay={100}>
             <Card className="p-6 sm:p-8 bg-card border-border h-full">
-              <div className="aspect-video bg-muted rounded-lg mb-6 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-hero opacity-10"></div>
+              <div 
+                className="aspect-video rounded-lg mb-6 flex items-center justify-center relative overflow-hidden cursor-pointer bg-cover bg-center"
+                style={{
+                  backgroundImage: "url('https://img.youtube.com/vi/BZSZzJ3fXJ0/maxresdefault.jpg')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center"
+                }}
+                onClick={() => setIsVideoOpen(true)}
+              >
+                <div className="absolute inset-0 bg-black/40 hover:bg-black/30 transition-all duration-300"></div>
                 <Button 
                   size="lg" 
-                  className="relative z-10 bg-gradient-hero text-primary-foreground shadow-elegant hover:opacity-90 text-sm sm:text-base"
-                  onClick={() => setIsVideoOpen(true)}
+                  className="relative z-10 bg-gradient-hero text-primary-foreground shadow-elegant hover:opacity-90 text-sm sm:text-base transform hover:scale-105 transition-transform duration-300"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsVideoOpen(true);
+                  }}
                 >
                   <Play className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
                   <span className="hidden sm:inline">Watch Demo Video</span>
@@ -68,7 +79,11 @@ export const Demo = () => {
                 Experience all features in our 5-minute interactive demo. See how easy it is to manage employees, track attendance, and handle leave requests.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button variant="outline" className="flex-1 text-sm sm:text-base">
+                <Button 
+                  variant="outline" 
+                  className="flex-1 text-sm sm:text-base"
+                  onClick={() => setIsVideoOpen(true)}
+                >
                   <Play className="h-4 w-4 mr-2" />
                   Launch Demo
                 </Button>
