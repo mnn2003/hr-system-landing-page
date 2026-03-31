@@ -60,38 +60,58 @@ export const FeaturesShowcase = () => {
           </p>
         </AnimatedSection>
 
-        <div className="space-y-16 sm:space-y-20 lg:space-y-28">
+        <div className="space-y-20 sm:space-y-24 lg:space-y-32">
           {showcaseFeatures.map((feature, index) => (
             <AnimatedSection key={index} animation="fade-up" delay={index * 50}>
               <div
-                className={`flex flex-col lg:flex-row items-center gap-10 lg:gap-16 ${
-                  feature.reverse ? "lg:flex-row-reverse" : ""
-                }`}
+                className={`flex flex-col ${
+                  feature.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+                } items-center gap-8 lg:gap-12 xl:gap-16`}
               >
-                <div className="flex-shrink-0 w-full lg:w-1/2 flex justify-center">
-                  <img
-                    src={feature.image}
-                    alt={feature.title}
-                    className="w-56 sm:w-64 lg:w-80 drop-shadow-lg"
-                  />
+                {/* Image Container */}
+                <div className="flex-shrink-0 w-full lg:w-1/2 flex justify-center lg:justify-center">
+                  <div className="relative group">
+                    {/* Decorative background element */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary/10 rounded-full blur-3xl scale-110 group-hover:scale-125 transition-transform duration-500"></div>
+                    <img
+                      src={feature.image}
+                      alt={feature.title}
+                      className="relative w-48 sm:w-56 md:w-64 lg:w-72 xl:w-80 drop-shadow-xl hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
                 </div>
-                <div className="flex-1 w-full lg:w-1/2 space-y-5 sm:space-y-6 text-center lg:text-left">
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
-                    {feature.title}
-                  </h3>
-                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
-                  <ul className="grid grid-cols-2 gap-3 sm:gap-4 justify-items-start mx-auto lg:mx-0 max-w-md lg:max-w-none">
+
+                {/* Content Container */}
+                <div className="flex-1 w-full lg:w-1/2 space-y-4 sm:space-y-5 text-center lg:text-left">
+                  <div className="space-y-3 sm:space-y-4">
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground leading-tight">
+                      {feature.title}
+                    </h3>
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                  
+                  <ul className="grid grid-cols-2 gap-3 sm:gap-4 pt-2">
                     {feature.features.map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-sm sm:text-base">
-                        <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                        <span className="text-foreground">{item}</span>
+                      <li key={idx} className="flex items-center gap-2 text-sm sm:text-base group/item">
+                        <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0 transition-transform group-hover/item:scale-110" />
+                        <span className="text-foreground/90 group-hover/item:text-foreground transition-colors">
+                          {item}
+                        </span>
                       </li>
                     ))}
                   </ul>
+
+                  {/* Optional: Add subtle divider or accent */}
+                  <div className="hidden lg:block w-12 h-0.5 bg-gradient-to-r from-primary to-transparent mt-4"></div>
                 </div>
               </div>
+
+              {/* Add decorative separator between features except last one */}
+              {index < showcaseFeatures.length - 1 && (
+                <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent mt-8"></div>
+              )}
             </AnimatedSection>
           ))}
         </div>
