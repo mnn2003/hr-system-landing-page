@@ -47,7 +47,7 @@ export const Demo = () => {
         </p>
       </AnimatedSection>
 
-      <div className="relative grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto">
+      <div className="relative grid lg:grid-cols-2 gap-6 sm:gap-7 lg:gap-10 max-w-6xl mx-auto">
         <AnimatedSection animation="fade-right" delay={100}>
           <Card className="p-6 sm:p-8 bg-card border-border h-full">
           <div className="aspect-video bg-muted rounded-lg mb-6 flex items-center justify-center relative overflow-hidden">
