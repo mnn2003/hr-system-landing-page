@@ -39,8 +39,8 @@ const PurchaseSuccess = () => {
   };
 
   const handleGoToLogin = () => {
-    // Open the HR app login page
-    window.open('https://hr-app-rho.vercel.app/', '_blank');
+    // Open the HR app login page (update this URL to your actual HR app)
+    window.open('https://pq-hub-906ed.firebaseapp.com', '_blank');
   };
 
   return (
