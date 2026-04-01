@@ -40,7 +40,7 @@ const PurchaseSuccess = () => {
 
   const handleGoToLogin = () => {
     // Open the HR app login page (update this URL to your actual HR app)
-    window.open('https://pq-hub-906ed.firebaseapp.com', '_blank');
+    window.open('https://hr-management-system-xi-ivory.vercel.app', '_blank');
   };
 
   return (
@@ -169,8 +169,8 @@ const PurchaseSuccess = () => {
         {/* Support Info */}
         <p className="text-center text-sm text-muted-foreground mt-8">
           Need help? Contact us at{' '}
-          <a href="mailto:support@hrms.com" className="text-primary hover:underline">
-            support@hrms.com
+          <a href="mailto:logicaman20@gmail.com" className="text-primary hover:underline">
+            logicaman20@gmail.com
           </a>
         </p>
       </div>
